@@ -3,8 +3,11 @@
 ##  Author: Kevin Yang                          ##
 ##################################################
 #Read in data 
-NEI <- readRDS("summarySCC_PM25.rds")
-SCC <- readRDS("Source_Classification_Code.rds")
+url <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2FNEI_data.zip"
+download.file(url,"exdata_NEI.zip")
+unzip("exdata_NEI.zip", exdir="data")
+NEI <- readRDS("data/summarySCC_PM25.rds")
+SCC <- readRDS("data/Source_Classification_Code.rds")
 
 #summarize emissions by year
 baltimore <- subset(NEI,fips=="24510")
